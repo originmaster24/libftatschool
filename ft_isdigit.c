@@ -6,13 +6,12 @@
 /*   By: zzhu <zzhu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/24 17:20:07 by zzhu              #+#    #+#             */
-/*   Updated: 2025/11/24 20:04:08 by zzhu             ###   ########.fr       */
+/*   Updated: 2025/11/24 20:20:08 by zzhu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <ctype.h>
-
 
 int	ft_isdigit(int c);
 
@@ -44,5 +43,4 @@ int	ft_isdigit(int c)
 // 	printf("%d\n", isdigit('Z'));
 // 	printf("%d\n", isdigit('!'));
 // 	printf("%d\n", isdigit(10));
-	
 // }

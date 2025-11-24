@@ -1,23 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_isalnum.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zzhu <zzhu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/24 19:46:28 by zzhu              #+#    #+#             */
-/*   Updated: 2025/11/24 20:22:44 by zzhu             ###   ########.fr       */
+/*   Created: 2025/11/24 20:16:29 by zzhu              #+#    #+#             */
+/*   Updated: 2025/11/24 20:28:09 by zzhu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#include "libft.h"
 
-# include <unistd.h>
-# include <stdio.h>
-
-int	ft_isalpha(int c);
-int	ft_isdigit(int c);
 int	ft_isalnum(int c);
 
-#endif
+int	ft_isalnum(int c)
+{
+	if(ft_isalpha(c) || ft_isdigit(c))
+		return (1);
+	return (0);
+}
+int main(void)
+{
+	printf("%d\n",ft_isalnum('!'));
+	printf("%d\n",ft_isalnum('2'));
+	printf("%d\n",ft_isalnum('a'));
+
+	printf("--------------------\n")
+	printf("%d\n",isalnum('!'));
+	printf("%d\n",isalnum('2'));
+	printf("%d\n",isalnum('a'));
+\}
