@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zzhu <zzhu@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: zzhu <zzhu@student.42firenze.it>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/24 21:02:32 by zzhu              #+#    #+#             */
-/*   Updated: 2025/11/24 21:14:47 by zzhu             ###   ########.fr       */
+/*   Updated: 2025/11/25 20:46:35 by zzhu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,9 @@ size_t	ft_strlen(const char *s);
 
 size_t	ft_strlen(const char *s)
 {
-	size_t	counter = 0;
+	size_t	counter;
 
+	counter = 0;
 	while (s[counter] != '\0')
 		counter++;
 	return (counter);
