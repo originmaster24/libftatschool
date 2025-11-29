@@ -6,7 +6,7 @@
 /*   By: zzhu <zzhu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/29 10:43:36 by zzhu              #+#    #+#             */
-/*   Updated: 2025/11/29 11:00:48 by zzhu             ###   ########.fr       */
+/*   Updated: 2025/11/29 11:03:38 by zzhu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	size_t	n;
 
 	result = malloc(sizeof(char) * (len + 1));
+	if (!result)
+		return (NULL);
 	n = ft_strlcpy(result, s + start, len + 1);
 	printf("%ld\n", n);
 	return (result);

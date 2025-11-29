@@ -9,6 +9,7 @@
         "ranges": "c",
         "span": "c",
         "utility": "c",
-        "random": "c"
+        "random": "c",
+        "functional": "c"
     }
 }
