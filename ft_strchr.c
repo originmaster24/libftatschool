@@ -6,7 +6,7 @@
 /*   By: zzhu <zzhu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/28 10:42:42 by zzhu              #+#    #+#             */
-/*   Updated: 2025/11/28 10:59:53 by zzhu             ###   ########.fr       */
+/*   Updated: 2025/11/29 15:00:10 by zzhu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 #include <string.h>
 
 char	*ft_strchr(const char *s, int c);
+
+//locate character in string
 
 char	*ft_strchr(const char *s, int c)
 {
