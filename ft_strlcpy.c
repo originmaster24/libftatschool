@@ -6,7 +6,7 @@
 /*   By: zzhu <zzhu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/26 21:29:16 by zzhu              #+#    #+#             */
-/*   Updated: 2025/11/28 08:56:22 by zzhu             ###   ########.fr       */
+/*   Updated: 2025/11/29 21:28:30 by zzhu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,9 @@
 #include <bsd/string.h>
 
 size_t	ft_strlcpy(char *dst, const char *src, size_t size);
+
+//size is inclusive of the end of string: example:
+//to copy hello you need size of 6  NOT 5
 
 size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 {
