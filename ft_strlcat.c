@@ -6,7 +6,7 @@
 /*   By: zzhu <zzhu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/28 08:22:50 by zzhu              #+#    #+#             */
-/*   Updated: 2025/11/29 21:57:40 by zzhu             ###   ########.fr       */
+/*   Updated: 2025/11/29 23:11:49 by zzhu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,27 +17,29 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size);
 
 size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
-	size_t	counter;
-	size_t	rsize;
+	size_t		counter;
 	size_t	dstlen;
+	size_t	detcounter;
 
-	rsize = 0;
+	detcounter = 0;
+	while (dst[detcounter])
+		detcounter++;
+	if (size <= detcounter)
+		return (size + ft_strlen(src));
 	dstlen = ft_strlen(dst);
 	counter = 0;
-	while (counter < size -1 - ft_strlen(dst))
+	while (src[counter] && detcounter + 1 < size)
 	{
-		dst[dstlen + counter] = src[counter];
+		dst[detcounter + counter] = src[counter];
+		detcounter++;
 		counter++;
 	}
-	if (size > 0)
-		dst[dstlen + counter] = '\0';
-	if (size < ft_strlen(src) && size <= dstlen)
-		rsize = size;
-	if (size > dstlen + 1)
-		rsize = size - 2;
-	else
-		rsize = size;
-	return ((size_t)(rsize + ft_strlen(src)));
+	if(detcounter < size )
+	{
+		dst[detcounter] = '\0';
+		detcounter++;
+	}
+	return (dstlen + ft_strlen(src));
 }
 
 int main(void)
@@ -50,18 +52,19 @@ int main(void)
 	//char dst2[30] = "01234";
 
 	size_t size = 0;
-	//size_t ftcatlen;
+	size_t ftcatlen;
 	size_t catlen;
+	char *dst1 = malloc(20*sizeof(char));
+	char *dst2 = malloc(20*sizeof(char));
 
 	for(;size < 15; size++)
 	{
-		//char dst1[30] = "01234";
-		char dst2[30] = "01234";
-		
-		//ftcatlen = ft_strlcat(dst1, src, size);
+		ft_strlcpy(dst1, "1234", 5);
+		ft_strlcpy(dst2, "1234", 5);
+		ftcatlen = ft_strlcat(dst1, src, size);
 		catlen = strlcat(dst2, src, size);
 		printf("size: %lu\n", size);
-		//printf("ft: %s, %lu\n", dst1, ftcatlen);
+		printf("ft: %s, %lu\n", dst1, ftcatlen);
 		printf("original: %s, %lu\n", dst2, catlen);
 		printf("\n");
 	}
