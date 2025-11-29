@@ -6,7 +6,7 @@
 /*   By: zzhu <zzhu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/24 17:20:07 by zzhu              #+#    #+#             */
-/*   Updated: 2025/11/24 20:20:08 by zzhu             ###   ########.fr       */
+/*   Updated: 2025/11/29 18:00:12 by zzhu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,22 +17,22 @@ int	ft_isdigit(int c);
 
 int	ft_isdigit(int c)
 {
-	if ((c >= 48 && c <= 57))
+	if ((c >= '0' && c <= '9'))
 		return (1);
 	return (0);
 }
 
 // int	main(void)
 // {
-// 	printf("%d\n", ft_isdigit('a'));
-// 	printf("%d\n", ft_isdigit('1'));
-// 	printf("%d\n", ft_isdigit('9'));
-// 	printf("%d\n", ft_isdigit('0'));
-// 	printf("%d\n", ft_isdigit('A'));
-// 	printf("%d\n", ft_isdigit('z'));
-// 	printf("%d\n", ft_isdigit('Z'));
-// 	printf("%d\n", ft_isdigit('!'));
-// 	printf("%d\n", ft_isdigit(10));
+// 	printf("ft%d\n", ft_isdigit('a'));
+// 	printf("ft%d\n", ft_isdigit('1'));
+// 	printf("ft%d\n", ft_isdigit('9'));
+// 	printf("ft%d\n", ft_isdigit('0'));
+// 	printf("ft%d\n", ft_isdigit('A'));
+// 	printf("ft%d\n", ft_isdigit('z'));
+// 	printf("ft%d\n", ft_isdigit('Z'));
+// 	printf("ft%d\n", ft_isdigit('!'));
+// 	printf("ft%d\n", ft_isdigit(10));
 // 	printf("-----------\n");
 // 	printf("%d\n", isdigit('a'));
 // 	printf("%d\n", isdigit('1'));
