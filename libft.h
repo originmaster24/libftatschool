@@ -6,7 +6,7 @@
 /*   By: zzhu <zzhu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/24 19:46:28 by zzhu              #+#    #+#             */
-/*   Updated: 2025/11/29 11:13:43 by zzhu             ###   ########.fr       */
+/*   Updated: 2025/11/29 11:21:32 by zzhu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,5 +38,6 @@ void	*ft_calloc(size_t nmemb, size_t size);
 char	*ft_strdup(const char *s);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 char	*ft_strjoin(char const *s1, char const *s2);
+char	*ft_strtrim(char const *s1, char const *set);
 
 #endif
