@@ -6,7 +6,7 @@
 /*   By: zzhu <zzhu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/28 08:22:50 by zzhu              #+#    #+#             */
-/*   Updated: 2025/11/28 09:57:57 by zzhu             ###   ########.fr       */
+/*   Updated: 2025/11/29 21:57:40 by zzhu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 	rsize = 0;
 	dstlen = ft_strlen(dst);
 	counter = 0;
-	while ((int)size - 1 - (int)ft_strlen(dst) > 0)
+	while (counter < size -1 - ft_strlen(dst))
 	{
 		dst[dstlen + counter] = src[counter];
 		counter++;
@@ -40,34 +40,37 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 	return ((size_t)(rsize + ft_strlen(src)));
 }
 
-// int main(void)
-// {
-// 	char src[] = "helloworld";
-// 	//char src[] = "0123456789abcdef";
-// 	//char dst1[20] = "helloworld";
-// 	char dst1[] = "0123456789abcdef";
-// 	//char dst2[20] = "helloworld";
-// 	char dst2[] = "0123456789abcdef";
+int main(void)
+{
+	char src[] = "helloworld";
+	//char src[] = "0123456789abcdef";
+	//char dst1[20] = "helloworld";
+	//char dst1[30] = "01234";
+	//char dst2[20] = "helloworld";
+	//char dst2[30] = "01234";
 
-// 	size_t size = 0;
-// 	size_t ftcatlen;
-// 	size_t catlen;
+	size_t size = 0;
+	//size_t ftcatlen;
+	size_t catlen;
 
-// 	for(;size < 20; size++)
-// 	{
-// 		ftcatlen = ft_strlcat(dst1, src, size);
-// 		catlen = strlcat(dst2, src, size);
-// 		printf("size: %lu\n", size);
-// 		printf("ft: %s, %lu\n", dst1, ftcatlen);
-// 		printf("original: %s, %lu\n", dst2, catlen);
-// 		printf("\n");
-// 	}
+	for(;size < 15; size++)
+	{
+		//char dst1[30] = "01234";
+		char dst2[30] = "01234";
+		
+		//ftcatlen = ft_strlcat(dst1, src, size);
+		catlen = strlcat(dst2, src, size);
+		printf("size: %lu\n", size);
+		//printf("ft: %s, %lu\n", dst1, ftcatlen);
+		printf("original: %s, %lu\n", dst2, catlen);
+		printf("\n");
+	}
 
-// 	// size = 5;
-// 	// ftcatlen = ft_strlcat(dst1, src, size);
-// 	// catlen = strlcat(dst2, src, size);
-// 	// printf("size: %lu\n", size);
-// 	// printf("ft: %s, %lu\n", dst1, ftcatlen);
-// 	// printf("original: %s, %lu\n", dst2, catlen);
-// 	// printf("\n");
-// }
+	// size = 5;
+	// ftcatlen = ft_strlcat(dst1, src, size);
+	// catlen = strlcat(dst2, src, size);
+	// printf("size: %lu\n", size);
+	// printf("ft: %s, %lu\n", dst1, ftcatlen);
+	// printf("original: %s, %lu\n", dst2, catlen);
+	// printf("\n");
+}
