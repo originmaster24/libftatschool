@@ -1,33 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zzhu <zzhu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/29 16:40:01 by zzhu              #+#    #+#             */
-/*   Updated: 2025/11/29 16:48:09 by zzhu             ###   ########.fr       */
+/*   Created: 2025/11/29 16:46:24 by zzhu              #+#    #+#             */
+/*   Updated: 2025/11/29 16:49:55 by zzhu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putstr_fd(char *s, int fd);
+void	ft_putendl_fd(char *s, int fd);
 
-void	ft_putstr_fd(char *s, int fd)
+void	ft_putendl_fd(char *s, int fd)
 {
-	int	idx;
-
-	idx = 0;
-	while (s[idx])
-	{
-		write(fd, &s[idx++], 1);
-	}
+	ft_putstr_fd(s, fd);
+	ft_putchar_fd('\n', fd);
 }
 
 // int main(void)
 // {
 // 	char str[] = "helloworld!";
-
-// 	ft_putstr_fd(str, 1);
+// 	ft_putendl_fd(str, 1);
 // }
