@@ -6,7 +6,7 @@
 /*   By: zzhu <zzhu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/29 13:28:40 by zzhu              #+#    #+#             */
-/*   Updated: 2025/11/29 15:20:53 by zzhu             ###   ########.fr       */
+/*   Updated: 2025/11/30 13:51:02 by zzhu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,21 @@ static int	split_counter(char const *s, char c)
 	int	resultcounter;
 	int	parseidx;
 
-	resultcounter = 2;
-	parseidx = -1;
-	while (s[++parseidx])
-		if (s[parseidx] == c)
+	resultcounter = 1;
+	parseidx = 0;
+	while (s[parseidx])
+	{
+		while (s[parseidx] == c)
+		{
+			parseidx++;
+		}
+		while (s[parseidx] != c && s[parseidx] != '\0')
+		{
+			parseidx++;
+		}
+		if (s[parseidx - 1] != c)
 			resultcounter++;
+	}
 	return (resultcounter);
 }
 
@@ -43,6 +53,20 @@ static int	ft_strchridx(const char *s, int start, char c)
 	return (idx);
 }
 
+static int	ft_strchridxopposite(const char *s, int start, char c)
+{
+	int	idx;
+
+	idx = start;
+	while (s[idx])
+	{
+		if (s[idx] != c)
+			return (idx);
+		idx++;
+	}
+	return (idx);
+}
+
 //atleast splitcount - 1 writes
 char	**ft_split(char const *s, char c)
 {
@@ -51,7 +75,7 @@ char	**ft_split(char const *s, char c)
 	int		subc;
 	int		subs;
 
-	subs = 0;
+	subs = ft_strchridxopposite(s, 0, c);
 	subc = 0;
 	splitcount = split_counter(s, c);
 	res = malloc(sizeof(char *) * splitcount);
@@ -61,7 +85,7 @@ char	**ft_split(char const *s, char c)
 		res[subc] = malloc(
 				(ft_strchridx(s, subs, c) - subs + 1) * sizeof(char));
 		ft_strlcpy(res[subc], s + subs, ft_strchridx(s, subs, c) - subs + 1);
-		subs = ft_strchridx(s, subs, c) + 1;
+		subs = ft_strchridxopposite(s, ft_strchridx(s, subs, c), c);
 		subc++;
 	}
 	return (res);
@@ -70,11 +94,12 @@ char	**ft_split(char const *s, char c)
 // int main(void)
 // {
 // 	setbuf(stdout, NULL);
-// 	char str[] = "hello world and hello planet!";
+// 	char str[] = "    hello        world   asdawa   ";
 // 	char delimiter = ' ';
 // 	char **result;
 
 // 	result = ft_split(str, delimiter);
 // 	for(int i = 0; result[i]; i++)
 // 		printf("i: %d, res: '%s'\n", i, result[i]);
+
 // }
