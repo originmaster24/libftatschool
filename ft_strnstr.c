@@ -6,7 +6,7 @@
 /*   By: zzhu <zzhu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/28 21:12:51 by zzhu              #+#    #+#             */
-/*   Updated: 2025/11/28 21:37:36 by zzhu             ###   ########.fr       */
+/*   Updated: 2025/11/30 18:16:55 by zzhu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,15 +24,16 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	lidx = 0;
 	if (ft_strlen(little) == 0)
 		return ((char *)(big));
-	while (big[bidx] && len > 0)
+	while (big[bidx] && bidx < len)
 	{
 		lidx = 0;
-		while (little[lidx] == big[bidx + lidx])
+		while (bidx + lidx < len
+			&& (little[lidx] != '\0')
+			&& little[lidx] == big[bidx + lidx])
 			lidx++;
-		if (little[lidx] == '\0' && (int)len - (int)lidx >= 0)
+		if (little[lidx] == '\0')
 			return ((char *)(big + bidx));
 		bidx++;
-		len--;
 	}
 	return (NULL);
 }
