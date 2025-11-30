@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zzhu <zzhu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/28 11:16:54 by zzhu              #+#    #+#             */
-/*   Updated: 2025/11/28 20:24:16 by zzhu             ###   ########.fr       */
+/*   Updated: 2025/11/30 11:44:00 by zzhu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,12 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 	index = 0;
 	if (n == 0)
 		return (0);
-	while (s1[index] == s2[index] && n > 1)
+	while ((unsigned char)s1[index] == (unsigned char)s2[index] && n > 1)
 	{
 		index++;
 		n--;
 	}
-	return ((int)((int)(s1[index]) - (int)(s2[index])));
+	return ((((unsigned char *)s1)[index]) - ((unsigned char *)s2)[index]);
 }
 
 // int main(void)
@@ -54,6 +54,6 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 // 		printf("n %d, str1 %s, str2 %s, orig: %d, ft: %d\n",
 // 			n, str5, str1, strncmp(str5, str1, n), ft_strncmp(str5, str1, n));
 // 	}
-// 	// printf("str1 %s, str2 %s, orig: %d, ft: %d\n",
-// 	// "\201", "A", strcmp("\201", "A"), ft_strcmp("\201", "A"));	
+// 	printf("str1 %s, str2 %s, orig: %d, ft: %d\n",
+// 	"\201", "A", strncmp("\201", "A", 1), ft_strncmp("\201", "A", 1));	
 // }
