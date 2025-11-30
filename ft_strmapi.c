@@ -6,7 +6,7 @@
 /*   By: zzhu <zzhu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/29 16:15:36 by zzhu              #+#    #+#             */
-/*   Updated: 2025/11/29 16:26:08 by zzhu             ###   ########.fr       */
+/*   Updated: 2025/11/30 14:10:26 by zzhu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,16 +19,14 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	int		index;
 	char	*result;
 
-	result = malloc(800 * sizeof(char));
-	if (result)
+	result = (char *)malloc((ft_strlen(s) + 1) * sizeof(char));
+	if (!result)
 		return (NULL);
+	ft_memset(result, '\0', ft_strlen(s) + 1);
 	index = 0;
-	while (index <= 800)
-		result[index++] = '\0';
-	index = 0;
-	while (s[index])
+	while ((size_t)index < ft_strlen(s))
 	{
-		((char *)s)[index] = f(index, s[index]);
+		result[index] = f(index, s[index]);
 		index++;
 	}
 	return (result);
