@@ -6,7 +6,7 @@
 /*   By: zzhu <zzhu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/28 10:42:42 by zzhu              #+#    #+#             */
-/*   Updated: 2025/11/29 15:00:10 by zzhu             ###   ########.fr       */
+/*   Updated: 2025/11/30 17:51:23 by zzhu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,12 @@ char	*ft_strchr(const char *s, int c)
 	size_t	index;
 
 	index = 0;
-	while (s[index] && s[index] != c)
+	while (((unsigned char *)s)[index] &&
+		(unsigned char)s[index] != (unsigned char)c)
 	{
 		index++;
 	}
-	if (s[index] == c)
+	if (((unsigned char *)s)[index] == (unsigned char)c)
 		return ((char *)s + index);
 	else
 		return (NULL);

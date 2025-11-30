@@ -6,7 +6,7 @@
 /*   By: zzhu <zzhu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/28 11:01:52 by zzhu              #+#    #+#             */
-/*   Updated: 2025/11/30 11:58:48 by zzhu             ###   ########.fr       */
+/*   Updated: 2025/11/30 17:48:57 by zzhu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ char	*ft_strrchr(const char *s, int c)
 	endi = ft_strlen(s);
 	while (endi >= 0)
 	{
-		if (s[endi] == c)
+		if (((unsigned char *)s)[endi] == (unsigned char) c)
 		{
 			return ((char *)(s + endi));
 		}
