@@ -6,20 +6,29 @@
 /*   By: zzhu <zzhu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/28 22:06:07 by zzhu              #+#    #+#             */
-/*   Updated: 2025/11/28 22:26:08 by zzhu             ###   ########.fr       */
+/*   Updated: 2025/11/30 19:04:28 by zzhu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdlib.h>
+#include <limits.h>
+#include <stdint.h>
 
 void	*ft_calloc(size_t nmemb, size_t size);
 
 void	*ft_calloc(size_t nmemb, size_t size)
 {
+	char *result;
 	if (nmemb == 0 || size == 0)
+		return (malloc(0));
+	if (nmemb > SIZE_MAX / size)
 		return (NULL);
-	return (malloc(nmemb * size));
+	result = malloc(nmemb * size);
+	if (!result)
+		return (NULL);
+	ft_bzero(result, nmemb * size);
+	return (result);
 }
 
 // int main(void)

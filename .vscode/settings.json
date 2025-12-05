@@ -10,6 +10,7 @@
         "span": "c",
         "utility": "c",
         "random": "c",
-        "functional": "c"
+        "functional": "c",
+        "bitset": "c"
     }
 }
