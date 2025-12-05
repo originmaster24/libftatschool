@@ -6,7 +6,7 @@
 /*   By: zzhu <zzhu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/25 21:18:17 by zzhu              #+#    #+#             */
-/*   Updated: 2025/12/05 20:15:13 by zzhu             ###   ########.fr       */
+/*   Updated: 2025/12/05 21:08:07 by zzhu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,10 @@
 #include <strings.h>
 
 void	ft_bzero(void *s, size_t n);
+
 //n includes the end string delimiter so 
 //to bzero [6]hello you need n = 6;
+
 void	ft_bzero(void *s, size_t n)
 {
 	size_t	counter;

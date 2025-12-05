@@ -6,7 +6,7 @@
 /*   By: zzhu <zzhu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/29 11:04:15 by zzhu              #+#    #+#             */
-/*   Updated: 2025/11/29 11:19:55 by zzhu             ###   ########.fr       */
+/*   Updated: 2025/12/05 20:33:59 by zzhu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ static char	*concatenate(char const *dst, char const *s1, char const *s2)
 	{
 		((char *)dst)[dstidx++] = s2[idx++];
 	}
+	((char *)dst)[dstidx++] = '\0';
 	return ((char *)(dst));
 }
 

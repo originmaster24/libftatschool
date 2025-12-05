@@ -6,7 +6,7 @@
 /*   By: zzhu <zzhu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/28 22:06:07 by zzhu              #+#    #+#             */
-/*   Updated: 2025/11/30 19:04:28 by zzhu             ###   ########.fr       */
+/*   Updated: 2025/12/05 21:09:07 by zzhu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@ void	*ft_calloc(size_t nmemb, size_t size);
 
 void	*ft_calloc(size_t nmemb, size_t size)
 {
-	char *result;
+	char	*result;
+
 	if (nmemb == 0 || size == 0)
 		return (malloc(0));
 	if (nmemb > SIZE_MAX / size)

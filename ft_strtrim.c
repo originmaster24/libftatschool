@@ -6,7 +6,7 @@
 /*   By: zzhu <zzhu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/29 11:21:11 by zzhu              #+#    #+#             */
-/*   Updated: 2025/11/30 14:35:53 by zzhu             ###   ########.fr       */
+/*   Updated: 2025/12/05 21:10:03 by zzhu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,12 +53,12 @@ static int	findend(char *s1, char *set)
 {
 	int	s1dx;
 
-	s1dx = ft_strlen(s1);
-	while (s1dx > 0)
+	s1dx = ft_strlen(s1) - 1;
+	while (s1dx >= 0)
 	{
-		if ((s1[s1dx] == '\0' && setmatch(s1[s1dx - 1], set))
-			|| (setmatch(s1[s1dx], set) && setmatch(s1[s1dx - 1], set))
-		)
+		if (s1dx == 0 && setmatch(s1[s1dx], set))
+			return (ft_strlen(s1));
+		if (setmatch(s1[s1dx], set))
 		{
 			s1dx--;
 			continue ;
@@ -66,9 +66,7 @@ static int	findend(char *s1, char *set)
 		else
 			break ;
 	}
-	if (s1dx == 0)
-		return (ft_strlen(s1));
-	return (s1dx);
+	return (s1dx + 1);
 }
 
 char	*ft_strtrim(char const *s1, char const *set)
@@ -80,17 +78,19 @@ char	*ft_strtrim(char const *s1, char const *set)
 	matchstart = findstart((char *)s1, (char *)set);
 	matchend = findend((char *)s1, (char *)set);
 	result = malloc((matchend - matchstart + 1) * sizeof(char));
-	if (matchend - matchstart > 0)
+	if (!result)
+		return (NULL);
+	if (matchend - matchstart >= 0)
 		ft_strlcpy(result, s1 + matchstart, matchend - matchstart + 1);
 	return (result);
 }
 
 // int main(void)
 // {
-// 	char str[] = "   2  9asd   ";
-// 	char set[] = " 213123   a1!1 ";
+// 	//char str[] = "   2  9asd   ";
+// 	//char set[] = " 213123   a1!1 ";
 // 	char *trimmed;
 
-// 	trimmed = ft_strtrim(str, set);
+// 	trimmed = ft_strtrim("   xxxtripouille", " x");
 // 	printf("trimmed: %s\n", trimmed);
 // }
